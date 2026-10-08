@@ -1,0 +1,33 @@
+@import "../styles/tokens.css";
+@import "../styles/motion.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  overscroll-behavior: none;
+  background: rgb(var(--surface-panel));
+  color: rgb(var(--ink-primary));
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--surface-panel));
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgb(var(--accent-teal) / 0.28);
+}

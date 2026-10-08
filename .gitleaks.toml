@@ -1,0 +1,12 @@
+[allowlist]
+description = "Ignore local runtime files and generated artifacts that must never be committed."
+paths = [
+  '''^\.env(\..*)?$''',
+  '''^apps/web/\.next/''',
+  '''^tmp/''',
+  '''^services/family-api/\.venv/''',
+]
+
+regexes = [
+  '''test-[A-Za-z0-9._=-]*with-at-least-32-bytes''',
+]

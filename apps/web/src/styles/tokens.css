@@ -1,0 +1,14 @@
+:root {
+  color-scheme: light;
+  --font-sans: "Inter";
+  --surface-canvas: 231 244 255;
+  --surface-panel: 255 255 255;
+  --surface-raised: 241 248 255;
+  --surface-line: 202 222 239;
+  --ink-primary: 21 35 52;
+  --ink-secondary: 84 103 125;
+  --ink-muted: 129 148 169;
+  --accent-teal: 41 151 242;
+  --accent-amber: 223 151 45;
+  --accent-rose: 224 72 102;
+}

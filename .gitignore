@@ -1,0 +1,80 @@
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage/
+htmlcov/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Node
+node_modules/
+.next/
+.nuxt/
+dist/
+build/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Docker and local runtime artifacts
+docker-compose.override.yml
+*.pid
+*.sock
+tmp/
+temp/
+
+# Manual backup outputs contain databases, media, and signing material.
+infra/backups/local/
+infra/backups/**/*.sql
+infra/backups/**/*.tgz
+infra/backups/**/*.tar
+infra/backups/**/*.tar.gz
+
+# Synapse local generated secrets/data if someone bind-mounts them into repo
+infra/synapse/*.signing.key
+infra/synapse/*.key
+infra/synapse/*.pem
+infra/synapse/media_store/
+infra/synapse/uploads/
+infra/synapse/data/
+infra/livekit/*.local.yaml
+infra/livekit/*.key
+infra/livekit/*.pem
+
+# Logs
+*.log
+logs/
+
+# Build/cache artifacts
+.cache/
+.playwright-cli/
+.parcel-cache/
+.turbo/
+.vite/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.idea/
+.vscode/
+*.swp
+*.swo

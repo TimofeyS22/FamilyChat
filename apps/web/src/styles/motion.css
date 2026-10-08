@@ -1,0 +1,149 @@
+:root {
+  --motion-micro: 140ms;
+  --motion-ui: 200ms;
+  --motion-overlay: 240ms;
+  --motion-panel: 280ms;
+  --motion-screen: 320ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.18, 0.64, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-micro: 1ms;
+    --motion-ui: 1ms;
+    --motion-overlay: 1ms;
+    --motion-panel: 1ms;
+    --motion-screen: 1ms;
+  }
+}
+
+.motion-surface {
+  transition-property: background-color, box-shadow, border-color, color, opacity;
+  transition-duration: var(--motion-micro);
+  transition-timing-function: var(--ease-standard);
+}
+
+.motion-transform {
+  transition-property: transform, opacity;
+  transition-duration: var(--motion-panel);
+  transition-timing-function: var(--ease-spring);
+}
+
+.motion-press:active {
+  transform: scale(0.97);
+  transition-property: transform;
+  transition-duration: var(--motion-micro);
+  transition-timing-function: var(--ease-standard);
+}
+
+.motion-press-subtle:active {
+  transform: scale(0.985);
+  transition-property: transform;
+  transition-duration: var(--motion-micro);
+  transition-timing-function: var(--ease-standard);
+}
+
+.motion-fade-in {
+  animation: fc-fade-in var(--motion-overlay) var(--ease-out-soft) both;
+}
+
+.motion-fade-out {
+  animation: fc-fade-out var(--motion-overlay) var(--ease-standard) both;
+}
+
+.motion-slide-up-in {
+  animation: fc-slide-up-in var(--motion-panel) var(--ease-spring) both;
+}
+
+.motion-message-in {
+  animation: fc-message-in var(--motion-panel) var(--ease-out-soft) both;
+}
+
+.motion-stagger-1 {
+  animation-delay: 40ms;
+}
+
+.motion-stagger-2 {
+  animation-delay: 80ms;
+}
+
+.motion-stagger-3 {
+  animation-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-transform {
+    transition: none;
+  }
+
+  .motion-press:active,
+  .motion-press-subtle:active {
+    transform: none;
+    transition: none;
+  }
+
+  .motion-fade-in,
+  .motion-fade-out,
+  .motion-slide-up-in,
+  .motion-message-in {
+    animation: none !important;
+  }
+
+  .motion-stagger-1,
+  .motion-stagger-2,
+  .motion-stagger-3 {
+    animation-delay: 0ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-press,
+  .motion-press-subtle {
+    transition-property: transform;
+    transition-duration: var(--motion-micro);
+    transition-timing-function: var(--ease-standard);
+  }
+}
+
+@keyframes fc-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fc-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fc-slide-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fc-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

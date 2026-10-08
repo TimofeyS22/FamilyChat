@@ -1,0 +1,51 @@
+server_name: "privatefamilychat.ru"
+pid_file: /data/homeserver.pid
+web_client_location: "https://web.privatefamilychat.ru/"
+public_baseurl: "https://matrix.privatefamilychat.ru/"
+
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['0.0.0.0']
+    resources:
+      - names: [client]
+        compress: false
+
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: "change-me-in-real-env"
+    database: synapse
+    host: postgres
+    port: 5432
+    cp_min: 5
+    cp_max: 10
+
+log_config: "/data/log.config"
+media_store_path: "/data/media_store"
+max_upload_size: "100M"
+
+enable_registration: false
+enable_registration_without_verification: false
+registration_shared_secret: "change-me"
+
+macaroon_secret_key: "change-me"
+form_secret: "change-me"
+signing_key_path: "/data/privatefamilychat.ru.signing.key"
+
+report_stats: false
+url_preview_enabled: false
+
+allow_public_rooms_without_auth: false
+allow_public_rooms_over_federation: false
+require_auth_for_profile_requests: true
+limit_profile_requests_to_users_who_share_rooms: true
+include_profile_data_on_invite: false
+
+# Closed family mode: no federation listener is exposed and outbound federation is allowlisted to no domains.
+federation_domain_whitelist: []
+trusted_key_servers: []
+suppress_key_server_warning: true
